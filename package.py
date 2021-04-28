@@ -40,6 +40,6 @@ def chr_ngram(num, seq):
 
     return cn_gram
 
-
+#返り値：暗号（9）
 def cipher(seq):
     return ''.join([chr(219 - ord(c)) if c.islower() else c for c in seq])
