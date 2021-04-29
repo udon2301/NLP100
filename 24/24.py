@@ -19,19 +19,19 @@ uk = df.query('title == "イギリス"')['text'].values[0]
 # Result :<a href="http://foobarexample.com"></a><a href="http://barquuxexample.com"></a>
 
 pattern = r'''
-            # ^                 行頭一致させる必要なし
-            # .*                欲しいのは[[]]の部分なのでその前の改行文字等はそもそも考慮しなくて良い
+            # ^                 #行頭一致させる必要なし。そもそも行ごとにファイルが存在するわけではない。
+            # .*                #欲しいのは[[]]の部分なのでその前の改行文字等はそもそも考慮しなくて良い
             \[\[
-            (?:File|ファイル)?
+            (?:File|ファイル)
             :
-            # (.*?)             任意の文字の0回以上の一致＝文字列がない場合でもキャプチャされるのでNG
+            # (.*?)             #任意の文字の0回以上の一致＝文字列がない場合でもキャプチャされるのでNG
             (.+?)
             \|
-            # (?:.*?)?          ｜以降はキャプチャしないのでいらない
-            # \]\]
+            (?:.+?)             #｜以降はキャプチャしないのでいらない
+            \]\]
             # .*
             # $
             '''
 
-answer = re.findall(pattern, uk, re.MULTILINE+re.VERBOSE)
+answer = re.findall(pattern, uk, re.VERBOSE)
 print(answer)
