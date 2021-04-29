@@ -16,3 +16,7 @@ decrypted = cipher(encrypted)
 
 print('暗号 : ' + encrypted)
 print('復号 : ' + decrypted)
+
+# ANSWER
+# 暗号 : Sfiu lm Emgilkb
+# 復号 : Surf on Entropy

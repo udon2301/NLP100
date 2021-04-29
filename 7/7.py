@@ -6,3 +6,6 @@ def temp_7(x,y,z):
     return str(x)+'時の'+str(y)+'は'+str(z)
 
 print(temp_7(12,'気温',22.4))
+
+# ANSWER
+# 12時の気温は22.4
