@@ -1,4 +1,5 @@
 import re
+import pandas as pd
 
 # 返り値：アルファベットのみの単語リスト
 def alpha_word(string):
@@ -75,3 +76,14 @@ def clean_ILmarkup(seq):
     cleaned = re.sub(pattern, r'\1', seq, flags = re.MULTILINE+re.VERBOSE)
     
     return cleaned
+
+def read_text():
+    # 0:表層形(surface)
+    # 1:品詞(pos)
+    # 2:品詞細分類1(pos1)
+    # 7:基本形(base)
+    df = pd.read_table('/Users/ishiiasuka/Documents/GitHub/NLP100/neko2.txt.mecab', sep='\t|,', header=None, 
+                        usecols=[0, 1, 2, 7], names=['surface', 'pos', 'pos1', 'base'], 
+                        skiprows=4, skipfooter=1 ,engine='python')
+    # 本当は空白はpos1だが、ずれてしまっている
+    return df[df['pos'] != '空白']
