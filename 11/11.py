@@ -3,4 +3,3 @@
 
 with open('./popular-names.txt') as d:
     data =d.read().replace('\t', ' ')
-    

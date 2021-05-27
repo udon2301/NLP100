@@ -9,7 +9,7 @@ import sys
 sys.path.append('/Users/ishiiasuka/Documents/GitHub/NLP100')
 from package import cipher
 
-seq = 'Surf on Entropy'
+seq = 'SI couldn’t believe that I could actually understand what I was reading : the phenomenal power of the human mind .'
 
 encrypted = cipher(seq)
 decrypted = cipher(encrypted)
